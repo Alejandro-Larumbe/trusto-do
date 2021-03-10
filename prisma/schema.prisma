@@ -22,8 +22,8 @@ model Task {
   description String   @db.Text
   status      Boolean  @default(false)
 
-  list        List     @relation(fields: [listId], references: [id])
-  listId      Int
+  list        List?     @relation(fields: [listId], references: [id])
+  listId      Int?
   comments    Comment[]
 }
 
@@ -31,6 +31,6 @@ model Comment {
   id        Int       @id @default(autoincrement())
   createdAt DateTime  @default(now())
   comment   String    @db.Text
-  taskId    Int
-  task      Task      @relation(fields: [taskId], references: [id])
+  taskId    Int?
+  task      Task?      @relation(fields: [taskId], references: [id])
 }

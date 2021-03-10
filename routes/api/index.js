@@ -6,8 +6,8 @@ const comments = require('./comments')
 
 
 
-// router.use('/lists', lists)
-// router.use('/tasks', tasks)
-// router.use('/comments', comments)
+router.use('/lists', lists)
+router.use('/tasks', tasks)
+router.use('/comments', comments)
 
 module.exports = router;
