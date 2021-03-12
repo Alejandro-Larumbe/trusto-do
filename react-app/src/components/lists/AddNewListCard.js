@@ -16,7 +16,7 @@ import CardHeader from '@material-ui/core/CardHeader';
 const useStyles = makeStyles((theme) => ({
   card: {
     // width: '100%',
-    backgroundColor: theme.palette.background.paper,
+    // backgroundColor:  grey[100],
     width: 500,
     outline: 'none'
     // backgroundColor: theme.palette.background.paper,

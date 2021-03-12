@@ -5,6 +5,7 @@ import './index.css';
 import App from './App';
 import { ThemeProvider } from '@material-ui/core/styles';
 import { theme } from './theme';
+import CssBaseline from "@material-ui/core/CssBaseline";
 
 
 import configureStore from './store/store';
@@ -17,8 +18,9 @@ ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
       <ThemeProvider theme={theme}>
-
+        <CssBaseline>
         <App />
+        </CssBaseline>
       </ThemeProvider>
     </Provider>
   </React.StrictMode>,

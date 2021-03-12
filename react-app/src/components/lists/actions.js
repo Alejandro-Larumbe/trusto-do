@@ -69,6 +69,7 @@ export const deleteList = (id) => async(dispatch) => {
     method: 'DELETE',
   })
   if (data.ok) {
+    // await dispatch(getLists())
     const list = await data.json();
     return list
   }

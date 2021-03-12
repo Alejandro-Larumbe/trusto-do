@@ -11,6 +11,7 @@ import StarBorder from '@material-ui/icons/StarBorder';
 import Card from '@material-ui/core/Card';
 import Paper from '@material-ui/core/Paper';
 import { openSnackBar } from '../../store/ui/actions';
+import Box from '@material-ui/core/Box';
 
 import IconButton from '@material-ui/core/IconButton';
 import CardActions from '@material-ui/core/CardActions';
@@ -24,14 +25,19 @@ import CheckCircleOutlineIcon from '@material-ui/icons/CheckCircleOutline';
 import CheckCircleIcon from '@material-ui/icons/CheckCircle';
 import DeleteDialog from '../DeleteDialog';
 import { updateTitle, addTask, deleteList, getLists } from './actions';
+import { minWidth, maxWidth } from '@material-ui/system';
+import Container from '@material-ui/core/Container';
+import { green, grey, amber, lime } from '@material-ui/core/colors';
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    minWidth: 400,
+    // minWidth: 100,
     // maxWidth: 360,
-    backgroundColor: theme.palette.background.paper,
+    // backgroundColor: grey[100],
     // backgroundColor: theme.palette.background.paper,
     margin: 'auto',
+    marginTop: 10,
     // borderBottom: 15
   },
   nested: {
@@ -55,7 +61,7 @@ export default function NestedList(props) {
   } = props
   const classes = useStyles();
   const [open, setOpen] = useState(true);
-  const [openNewList, setOpenNewList] = useState(true);
+  // const [openNewList, setOpenNewList] = useState(true);
   const [openDeleteDialog, setOpenDeleteDialog] = useState(false);
   const [editTitle, setEditTitle] = useState(false);
   const [addNewTask, setAddNewTask] = useState(false);
@@ -93,14 +99,14 @@ export default function NestedList(props) {
   }
 
   const onDeleteList = (e) => {
-    (async () => {
-      await e.preventDefault()
-      await dispatch(deleteList(list.id))
-      await dispatch(getLists())
+    // (async () => {
+      e.preventDefault()
+      dispatch(deleteList(list.id))
+
       setOpenDeleteDialog(false)
       dispatch(getLists())
-
-    })()
+      // await dispatch(getLists())
+    // })()
   }
 
   return (
@@ -112,7 +118,10 @@ export default function NestedList(props) {
         message={"All tasks will be deleted as well and you won't be able to access this list again. There is no undo."}
         callBack={onDeleteList}
       />
-      <Paper className={classes.root} variant="outlined">
+      <Card
+        className={classes.root}
+        variant="outlined"
+        >
         <CardContent>
           <Grid
             container
@@ -120,11 +129,13 @@ export default function NestedList(props) {
             justify="space-between"
             alignItems="center"
           >
+            <Grid xs={4} item>
             {
               editTitle ?
                 <form onSubmit={onEditTitle} >
                   <ClickAwayListener onClickAway={onEditTitle}>
                     <TextField
+                      // style={{ wordWrap: 'break-word' }}
                       defaultValue={list.title}
                       size="small"
                       variant="outlined"
@@ -140,18 +151,21 @@ export default function NestedList(props) {
                   </ClickAwayListener>
                 </form>
                 :
-                <Typography onClick={() => setEditTitle(true)} className={classes.title} variant="h6" component="h2">
+                <Typography noWrap	onClick={() => setEditTitle(true)} className={classes.title} variant="h6" component="h2">
                   {list.title}
                 </Typography>
             }
+            </Grid>
+            <Grid item>
             {/* </Grid> */}
             <IconButton
               onClick={() => setOpenDeleteDialog(true)}
-            // edge='end'
-            // size="small"
-            >
+              // edge='end'
+              // size="small"
+              >
               <DeleteIcon />
             </IconButton>
+              </Grid>
           </Grid>
 
 
@@ -160,14 +174,15 @@ export default function NestedList(props) {
           {/* </Typography> */}
           {/* </ListItem>
       </List> */}
-          <List component="div" disablePadding>
+          <List  component="div" disablePadding>
             {
               list.tasks.map(task => {
                 return (
                   <>
                     {/* <Divider variant="middle" component="li" /> */}
                     <ListItem onClick={() => handleOpenTask(task.id)} key={task.id} button className={classes.nested}>
-                      <ListItemIcon onClick={dispatch(openSnackBar(true, task.status ? 'Wait, you did not complete the task!' : 'Task Completed, Yay!', task.status ? 'warning' : 'success'))}>
+                      {/* <ListItemIcon onClick={dispatch(openSnackBar(true, task.status ? 'Wait, you did not complete the task!' : 'Task Completed, Yay!', task.status ? 'warning' : 'success'))}> */}
+                      <ListItemIcon>
                       {
                       task.status
                         ?
@@ -176,7 +191,7 @@ export default function NestedList(props) {
                         <CheckCircleOutlineIcon />
                     }
                       </ListItemIcon>
-                      <ListItemText primary={task.title} />
+                      <ListItemText primaryTypographyProps={{noWrap:true}}  primary={task.title} />
                     </ListItem>
                   </>
                 )
@@ -223,7 +238,7 @@ export default function NestedList(props) {
             </Button>
           }
         </CardActions>
-      </Paper>
+      </Card>
     </>
   );
 }

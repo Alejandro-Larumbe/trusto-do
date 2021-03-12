@@ -8,28 +8,15 @@ import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import AddIcon from '@material-ui/icons/Add';
 import { Grid } from '@material-ui/core';
-import TextField from '@material-ui/core/TextField';
 import AddNewListCard from './AddNewListCard';
 import SnackBar from '../SnackBar';
-import Card from '@material-ui/core/Card';
+import Container from '@material-ui/core/Container';
 
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    width: '100%',
-    maxWidth: 500,
-    margin: 'auto',
-
+    marginTop: '12vh'
   },
-  listsContainer: {
-    backgroundColor: theme.palette.background.paper,
-
-    width: '100%',
-    maxWidth: 500,
-    margin: 'auto',
-  }
-
-
 }))
 
 
@@ -40,22 +27,20 @@ function Lists(props) {
   const [currentTaskId, setCurrentTaskId] = useState(null)
   const classes = useStyles();
 
-  // console.log('------', currentTaskId)
-
   const handleModal = (boolean) => {
     setOpenTask(boolean);
   };
 
-  const handleChange = (cb) => (event) => {
-    cb(event.target.value)
-  }
-
-
 
   return (
     <>
-      <div className={classes.root}>
+       <Container
+       className={classes.root}
+        maxWidth={'sm'}
+        // minWidth={'100'}
+        // minWidth= {100}
 
+      >
         <div className={classes.title}>
           <Grid
             container
@@ -64,7 +49,7 @@ function Lists(props) {
             alignItems="flex-end"
           >
 
-            <Typography variant={'h3'} >
+            <Typography variant={'h4'} >
               Lists
             </Typography>
             {/* </Grid> */}
@@ -80,41 +65,27 @@ function Lists(props) {
         </div>
 
         <AddNewListCard open={openNewList} setOpen={setOpenNewList} />
+        {
+          lists.map(list => {
+            return (
+              // <Grid item >
+                <List
+                  key={list.id}
+                  list={list}
+                  handleModal={handleModal}
+                  setCurrentTaskId={setCurrentTaskId}
+                />
+            )
+          })
 
-        {/* <Card className={classes.listsContainer}> */}
-          {/* </div> */}
-          {
-            lists.length
-              ?
-              // <Grid
-              //   container
-              //   spacing={2}
-              // >
-                // {
-                  lists.map(list => {
-                    return (
-                      // <Grid item >
-                        <List
-                          key={list.id}
-                          list={list}
-                          handleModal={handleModal}
-                          setCurrentTaskId={setCurrentTaskId}
-                        />
-                    )
-                  })
-                // }
-              // </Grid>
-              :
-              <h1>Add your first list</h1>
           }
-        {/* </Card> */}
         <Task
           setOpen={setOpenTask}
           open={openTask}
           currentTaskId={currentTaskId}
         />
         <SnackBar {...props} />
-      </div>
+      </Container>
     </>
   )
 
@@ -122,17 +93,22 @@ function Lists(props) {
 
 
 function ListsContainer() {
-  const lists = Object.values(useSelector(state => state.lists))
+  const lists = useSelector(state => state.lists)
   const { open: openSnackBar, message, severity } = useSelector(state => state.ui.snackBar)
   const dispatch = useDispatch();
+
   useEffect(() => {
-    dispatch(getLists())
+    (async() => {
+      await dispatch(getLists())
+    })()
   }, [dispatch])
+
+  // if(!lists) return null
 
   return (
     <>
       <Lists
-        lists={lists}
+        lists={Object.values(lists)}
         openSnackBar={openSnackBar}
         severity={severity}
         message={message}

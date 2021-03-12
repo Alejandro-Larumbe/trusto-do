@@ -1,4 +1,5 @@
 import React from 'react';
+// import { useDispatch } from 'react-redux';
 import { withStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
@@ -9,6 +10,7 @@ import DialogContentText from '@material-ui/core/DialogContentText';
 import IconButton from '@material-ui/core/IconButton';
 import CloseIcon from '@material-ui/icons/Close';
 import Typography from '@material-ui/core/Typography';
+import { getLists } from './lists/actions';
 
 const styles = (theme) => ({
   root: {
@@ -40,6 +42,7 @@ const DialogTitle = withStyles(styles)((props) => {
 
 export default function DeleteDialog(props) {
   const { open, setOpen, title, message, callBack } = props
+  // const dispatch = useDispatch()
 
   const handleClose = () => {
     setOpen(false);

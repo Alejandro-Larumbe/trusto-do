@@ -14,7 +14,8 @@ router.get("/", async (_req, res, _next) => {
       tasks: {
         select: {
           id: true,
-          title: true
+          title: true,
+          status: true
         }
       }
     },

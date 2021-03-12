@@ -11,13 +11,18 @@ import TextField from '@material-ui/core/TextField';
 import { editingTaskComment } from '../../store/ui/actions';
 import Button from '@material-ui/core/Button';
 import { openSnackBar } from '../../store/ui/actions';
+import Paper from '@material-ui/core/Paper';
+import { Container, Box } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
-  card: {
-    maxWidth: '100%',
+  root: {
+    // width:'auto'
+    maxWidth:500,
+
   },
   inputFont: {
-    fontSize: 13
+    fontSize: 13,
+    textAlign: "right",
   },
   input: {
     minWidth: 300
@@ -62,121 +67,136 @@ function Comment(props) {
   }
 
   return (
-    <Grid
-      container
-      direction="column"
-      justify="flex-end"
-      alignItems="flex-end"
-      style={{ marginBottom: 20 }}
-    // spacing={3}
+    <Box
+      className={classes.root}
+      // width={1/4}
     >
-      <Typography variant="caption" color="textSecondary" component="p">
-        {`${format(new Date(comment.createdAt), 'Pp')}`}
-      </Typography>
-      {
-        (activeEditComment && activeEditCommentId === comment.id)
-          ?
-          <>
-            <Card
-              className={classes.input}
-              elevation={2}
-            >
+      <Grid
+      // item
+        container
+        direction="column"
+        justify="flex-end"
+        alignItems="flex-end"
+        wrap='nowrap'
+        style={{ marginBottom: 20 }}
+        spacing={24}
 
-              {/* <Grid item> */}
-              <CardContent>
-                <form >
-                  <Grid
-                    container
-                    direction="column"
-                    justify="flex-end"
-                    alignItems="flex-end"
-                    spacing={2}
-                  >
-                    {/* <Grid item> */}
-                    <>
-                      <TextField
-                        variant='outlined'
-                        size='small'
-                        required
-                        fullWidth
-                        multiline
-                        defaultValue={comment.comment}
-                        InputProps={{
-                          classes: {
-                            input: classes.inputFont,
-                          },
-                        }}
-                        onChange={handleChange}
-                      // onBlur={() => dispatch(editingTaskComment(null, false))}
-                      />
+      // spacing={3}
+      >
+        <Typography variant="caption" color="textSecondary" component="p">
+          {`${format(new Date(comment.createdAt), 'Pp')}`}
+        </Typography>
+        {
+          (activeEditComment && activeEditCommentId === comment.id)
+            ?
+            <>
+              <Paper
+                className={classes.input}
+                elevation={2}
+              >
+
+                {/* <Grid item> */}
+                {/* <CardContent> */}
+                  <form >
+                    <Grid
+                    item
+                      // container
+                      // direction="column"
+                      // justify="flex-end"
+                      // alignItems="flex-end"
+                      spacing={2}
+                    >
+                      {/* <Grid item> */}
+                      <>
+                        <TextField
+                          variant='outlined'
+                          size='small'
+                          required
+                          fullWidth
+                          multiline
+                          defaultValue={comment.comment}
+                          InputProps={{
+                            classes: {
+                              input: classes.inputFont,
+                            },
+                          }}
+                          onChange={handleChange}
+                        // onBlur={() => dispatch(editingTaskComment(null, false))}
+                        />
+                        {/* </Grid> */}
+                      </>
+                      {/* <Grid item> */}
+                      <>
+                      </>
                       {/* </Grid> */}
-                    </>
-                    {/* <Grid item> */}
-                    <>
-                      <span>
+                    </Grid>
+                  </form>
+                {/* </CardContent> */}
+                {/* </Grid> */}
+                {/* <Grid item> */}
+                {/* </Grid> */}
+              </Paper>
+                        <span>
 
-                        <Button onClick={onEditComment}>
-                          Update
-                      </Button >
-                        <Button onClick={() => dispatch(editingTaskComment(null, false))}>
-                          Cancel
-                      </Button>
-                      </span>
-                    </>
-                    {/* </Grid> */}
-                  </Grid>
-                </form>
-              </CardContent>
-              {/* </Grid> */}
-              {/* <Grid item> */}
-              {/* </Grid> */}
-            </Card>
-          </>
-          :
-          <>
-            <Card
-              className={classes.card}
-              elevation={2}
-            >
-              <CardContent>
-                {
-                  <Typography variant="body2" color="textSecondary" component="p">
-                    {comment.comment}
-                  </Typography>
-                }
-              </CardContent>
-            </Card>
-            <Grid
-              container
-              direction="row"
-              justify="flex-end"
-              alignItems="flex-end"
-              spacing={1}
-            >
-              <Grid item >
-                <Typography
-                  className={classes.commentButtons}
-                  onClick={() => dispatch(editingTaskComment(comment.id, true))}
-                  variant="caption"
-                  color="textSecondary"
-                  component="p">
-                  Edit
+                          <Button variant='contained'color="primary" onClick={onEditComment}>
+                            Update
+                           </Button >
+                          <Button variant='contained'color="secondary" onClick={() => dispatch(editingTaskComment(null, false))}>
+                            Cancel
+                          </Button>
+                        </span>
+            </>
+            :
+            <>
+            <Grid item xs={12}  >
+
+              <Card
+                // className={classes.root}
+                elevation={2}
+                >
+                <CardContent>
+
+                <Typography align='right' style={{ wordWrap: 'break-word'}} variant="p" color="textSecondary" component="p">
+                  {comment.comment}
                 </Typography>
+
+               </CardContent>
+              </Card>
               </Grid>
-              <Grid item>
-                <Typography
-                  className={classes.commentButtons}
-                  onClick={onDeleteComment}
-                  variant="caption"
-                  color="textSecondary"
-                  component="p">
-                  Delete
+              <Grid
+                container
+                direction="row"
+                justify="flex-end"
+                alignItems="flex-end"
+                spacing={1}
+              >
+                <Grid item >
+                  <Typography
+                    className={classes.commentButtons}
+
+                    onClick={() => dispatch(editingTaskComment(comment.id, true))}
+                    variant="caption"
+                    color="textSecondary"
+                    component="p">
+                    Edit
                 </Typography>
+                </Grid>
+                <Grid item>
+                  <Typography
+                    className={classes.commentButtons}
+                    onClick={onDeleteComment}
+                    variant="caption"
+                    color="textSecondary"
+                    component="p">
+                    Delete
+                </Typography>
+                </Grid>
               </Grid>
-            </Grid>
-          </>
-      }
-    </Grid>
+            </>
+        }
+      </Grid>
+    </Box>
+
   );
 }
 
