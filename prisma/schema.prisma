@@ -17,10 +17,10 @@ model List {
 }
 
 model Task {
-  id          Int      @id @default(autoincrement())
-  title       String   @db.VarChar(255)
-  description String   @db.Text
-  status      Boolean  @default(false)
+  id          Int       @id @default(autoincrement())
+  title       String    @db.VarChar(255)
+  description String?   @db.Text
+  status      Boolean?  @default(false)
 
   list        List?     @relation(fields: [listId], references: [id])
   listId      Int?

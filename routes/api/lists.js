@@ -17,8 +17,13 @@ router.get("/", async (_req, res, _next) => {
           title: true
         }
       }
+    },
+    orderBy: {
+      id: "desc"
     }
   })
+  console.log('------', lists)
+
   res.json(lists)
 })
 

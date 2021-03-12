@@ -10,7 +10,29 @@ router.get("/:id(\\d+)", async (req, res, _next) => {
   const task = await prisma.task.findUnique({
     where: {
       id
-    }
+    },
+    select: {
+      id: true,
+      title: true,
+      description: true,
+      status: true,
+      listId: true,
+      comments: {
+        select: {
+          id: true,
+          createdAt: true,
+          comment: true
+        },
+        orderBy:{
+          createdAt: 'desc'
+        }
+      },
+      list: {
+        select: {
+          title:true
+        }
+      },
+    },
   })
   res.json(task)
 })
