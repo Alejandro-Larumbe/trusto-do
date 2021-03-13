@@ -82,6 +82,7 @@ function TaskHeader(props) {
                 <form onSubmit={onEditTitle} >
                   <ClickAwayListener onClickAway={onEditTitle}>
                     <TextField
+                      placeholder="Add Title"
                       defaultValue={task.title}
                       size="small"
                       variant="outlined"

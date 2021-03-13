@@ -46,7 +46,7 @@ export function TaskDescription(props) {
       <Grid className={classes.item} item>
         <Typography variant="h6" component="h3">
           Description
-      </Typography>
+        </Typography>
 
         {
           editDescription || !task.description
@@ -54,7 +54,7 @@ export function TaskDescription(props) {
             <>
               <TextField
                 variant='outlined'
-                size='small'
+                placeholder="Add a description for your task"
                 required
                 fullWidth
                 multiline

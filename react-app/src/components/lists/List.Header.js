@@ -95,11 +95,10 @@ function ListTitle(props) {
           }
         </Grid>
         <Grid item>
-          {/* </Grid> */}
           <IconButton
             onClick={() => dispatch(editListUI('deleteDialogue', null))}
-          // edge='end'
-          // size="small"
+            edge='end'
+            size="small"
           >
             <DeleteIcon />
           </IconButton>
