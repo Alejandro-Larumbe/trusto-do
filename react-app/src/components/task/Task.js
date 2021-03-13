@@ -40,8 +40,8 @@ function Task(props) {
       <Container
         className={classes.root}
         display="flex"
-        flexDirection="column"
-        justifyContent="center"
+        flexdirection="column"
+        justifycontent="center"
       >
           <Card>
             <Grid

@@ -73,9 +73,9 @@ function Comment(props) {
         alignItems="flex-end"
         wrap='nowrap'
         style={{ marginBottom: 20 }}
-        spacing={24}
+        // spacing={24}
       >
-        <Typography variant="caption" color="" component="p">
+        <Typography variant="caption" component="p">
           {`${format(new Date(comment.createdAt), 'Pp')}`}
         </Typography>
         {
@@ -89,7 +89,6 @@ function Comment(props) {
                 <form >
                   <Grid
                     item
-                    spacing={2}
                   >
                     <>
                       <TextField
@@ -129,7 +128,7 @@ function Comment(props) {
                   elevation={4}
 
                 >
-                    <Typography align='right' style={{ wordWrap: 'break-word', margin:'8px' }} variant="p" component="p">
+                    <Typography align='right' style={{ wordWrap: 'break-word', margin:'8px' }} variant="caption" component="p">
                       {comment.comment}
                     </Typography>
                 </Card>

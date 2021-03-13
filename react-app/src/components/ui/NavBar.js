@@ -49,7 +49,7 @@ export default function ElevateAppBar(props) {
               <div>
                 <Typography edge='start' style={{ fontFamily: 'Courgette', color: '#188C97' }} variant="h2">Trusto-do</Typography>
               </div>
-              <div style={{ justifyContent: 'space-between', alignItems: 'center', display: 'flex' }}>
+              <div >
 
                 <IconButton onClick={toggleDarkMode}>
                   { theme.palette.type === 'light'

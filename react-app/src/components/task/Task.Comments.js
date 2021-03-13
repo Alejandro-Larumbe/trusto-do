@@ -39,10 +39,12 @@ export default function TaskComment(props) {
   }
 
   const onAddComment = (e) => {
-    e.preventDefault();
-    dispatch(addComment(newComment, task.id))
-    setNewComment(null)
-    dispatch(openSnackBar(true, 'Comment added succesfully', 'success'))
+    if(newComment!== '') {
+      e.preventDefault();
+      dispatch(addComment(newComment, task.id))
+      setNewComment(null)
+      dispatch(openSnackBar(true, 'Comment added succesfully', 'success'))
+    }
   }
 
   return (
@@ -74,6 +76,7 @@ export default function TaskComment(props) {
               task.comments.map(comment => {
                 return (
                   <Comment
+                    key={comment.id}
                     comment={comment}
                     taskId={task.id}
                   />

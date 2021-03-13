@@ -34,7 +34,7 @@ function SnackBar(props) {
       return;
     }
 
-    dispatch(openSnackBar(false, '', ''));
+    dispatch(openSnackBar(false, '', 'success'));
   };
 
   return (

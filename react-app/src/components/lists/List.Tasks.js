@@ -18,7 +18,6 @@ export default function ListTasks({ tasks }) {
       {
         tasks.map(task => {
           return (
-            <>
               <ListItem onClick={() => dispatch(openTask(true, task.id))} key={task.id} button>
                 <ListItemIcon>
                   {
@@ -31,7 +30,6 @@ export default function ListTasks({ tasks }) {
                 </ListItemIcon>
                 <ListItemText primaryTypographyProps={{ noWrap: true }} primary={task.title} />
               </ListItem>
-            </>
           )
         })
       }

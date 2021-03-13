@@ -31,10 +31,12 @@ export function TaskDescription(props) {
 
   const onDescriptionUpdate = (e) => {
     (async () => {
-      await e.preventDefault()
-      await dispatch(updateDescription(task.id, newDescription))
-      await dispatch(editTaskUI('', null))
-      await dispatch(openSnackBar(true, 'Description updated succesfully', 'success'))
+      if (newDescription !== '') {
+        await e.preventDefault()
+        await dispatch(updateDescription(task.id, newDescription))
+        await dispatch(editTaskUI('', null))
+        await dispatch(openSnackBar(true, 'Description updated succesfully', 'success'))
+      }
     }
     )()
   }
@@ -74,7 +76,7 @@ export function TaskDescription(props) {
             </>
 
             :
-            <Typography wrap onClick={() => dispatch(editTaskUI('editDescription', null))} className={classes.description} variant="body1" component="p">
+            <Typography wra='true' onClick={() => dispatch(editTaskUI('editDescription', null))} className={classes.description} variant="body1" component="p">
               {task.description}
             </Typography>
         }
