@@ -7,18 +7,25 @@ const initialStore = {
     }
   },
   ui: {
+    dark: false,
     task: {
-      comment: {
-        currentId: null,
-        active: false
-      }
+      currentId: null,
+      type: ''
+    },
+    openTask: {
+      open: false,
+      taskId: '',
     },
     snackBar: {
       open: false,
       message: null,
       severity: 'success'
+    },
+    list: {
+      type: '',
+      currentId: null
+
     }
   }
 }
-
 export default initialStore;

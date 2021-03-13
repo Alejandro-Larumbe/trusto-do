@@ -1,8 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { useDispatch } from 'react-redux';
 import { makeStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
 import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
+import { editListUI  } from '../ui/actions';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -20,9 +22,10 @@ export default function MyModal(props) {
     open
   } = props
   const classes = useStyles();
+  const dispatch = useDispatch();
 
   const handleClose = () => {
-    setOpen(false);
+    dispatch(editListUI('', null));
   };
 
 

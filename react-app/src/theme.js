@@ -1,9 +1,19 @@
 import { createMuiTheme } from '@material-ui/core/styles';
-import { green, grey, amber, lime } from '@material-ui/core/colors';
-import { NotExtended } from 'http-errors';
+import { useSelector } from 'react-redux';
 // import green from '@material-ui/core/colors/green';
 
-let dark = false
+let dark = true
+let darkMode = localStorage.getItem("dark")
+
+console.log(darkMode)
+
+window.addEventListener('storage', function(event) {
+  // if (event.key === 'user-value') {
+  //   output.textContent = event.newValue;
+  // }
+  console.log(event)
+  console.log(event.key)
+});
 
 export const theme = createMuiTheme({
   palette: {
@@ -14,38 +24,10 @@ export const theme = createMuiTheme({
     secondary: {
       main: '#ED751C'
     },
-    // text : {  primary:"#fffde7"
-    // },
 
     background: {
       default: dark ? '#303030' : '#D7FAFB',
-      // paper: dark ? '#424242' : grey[100],
     }
 
-
-    // {
-    // grey
-    // paper: {
-    //   main: grey
-    // }
-
-
-    // }
-
   },
-
-
-  // typography: {
-
-  //   // default: lime[500],
-
-  //   fontFamily: [
-  //     'Lato',
-  //     'Montserrat',
-  //     '"Helvetica Neue"',
-  //     'Arial',
-  //     'sans-serif',
-  //     // 'Courgette',
-  //   ].join(','),
-  // },
 });

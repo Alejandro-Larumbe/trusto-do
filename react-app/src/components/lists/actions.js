@@ -1,9 +1,10 @@
-import { LOAD_LISTS } from './reducer';
+import { LOAD_LISTS, DELETE_LIST } from './reducer';
 
 export const getLists = () => async(dispatch) => {
   const data = await fetch('/lists')
   if (data.ok) {
     const lists = await data.json();
+    console.log('-----------------lists')
     dispatch({
       type: LOAD_LISTS,
       lists
@@ -64,13 +65,13 @@ export const addList = (title) => async(dispatch) => {
   }
 }
 
+
 export const deleteList = (id) => async(dispatch) => {
   const data = await fetch(`/lists/${id}`, {
     method: 'DELETE',
   })
   if (data.ok) {
-    // await dispatch(getLists())
-    const list = await data.json();
-    return list
+    const lists = await data.json();
+    dispatch({type: DELETE_LIST, lists})
   }
 }

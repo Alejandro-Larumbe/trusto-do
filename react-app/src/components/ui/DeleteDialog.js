@@ -1,5 +1,5 @@
 import React from 'react';
-// import { useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { withStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
@@ -10,7 +10,8 @@ import DialogContentText from '@material-ui/core/DialogContentText';
 import IconButton from '@material-ui/core/IconButton';
 import CloseIcon from '@material-ui/icons/Close';
 import Typography from '@material-ui/core/Typography';
-import { getLists } from './lists/actions';
+import { editListUI  } from '../ui/actions';
+
 
 const styles = (theme) => ({
   root: {
@@ -29,7 +30,7 @@ const DialogTitle = withStyles(styles)((props) => {
   const { children, classes, onClose, ...other } = props;
   return (
     <MuiDialogTitle disableTypography className={classes.root} {...other}>
-      <Typography variant="h6">{children}</Typography>
+      <Typography noWrap variant="h6">{children}</Typography>
       {onClose ? (
         <IconButton aria-label="close" className={classes.closeButton} onClick={onClose}>
           <CloseIcon />
@@ -40,12 +41,12 @@ const DialogTitle = withStyles(styles)((props) => {
 });
 
 
-export default function DeleteDialog(props) {
-  const { open, setOpen, title, message, callBack } = props
-  // const dispatch = useDispatch()
+function DeleteDialog(props) {
+  const { open, title, message, callBack } = props
+  const dispatch = useDispatch()
 
   const handleClose = () => {
-    setOpen(false);
+    dispatch(editListUI('', null));
   };
 
   return (
@@ -70,4 +71,11 @@ export default function DeleteDialog(props) {
       </Dialog>
     </div>
   );
+}
+
+export default function DeleteDialogContainer(props) {
+  const open = useSelector(state => state.ui.list.type) === 'deleteDialogue'
+  return (
+    <DeleteDialog open={open} {...props} />
+  )
 }

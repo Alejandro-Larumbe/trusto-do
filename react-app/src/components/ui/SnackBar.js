@@ -1,10 +1,10 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
-import Button from '@material-ui/core/Button';
+import { useDispatch, useSelector } from 'react-redux';
+// import Button from '@material-ui/core/Button';
 import Snackbar from '@material-ui/core/Snackbar';
 import MuiAlert from '@material-ui/lab/Alert';
 import { makeStyles } from '@material-ui/core/styles';
-import { openSnackBar } from '../store/ui/actions';
+import { openSnackBar } from '../ui/actions';
 
 function Alert(props) {
   return <MuiAlert elevation={6} variant="filled" {...props} />;
@@ -19,9 +19,9 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function CustomizedSnackbars(props) {
+function SnackBar(props) {
   const {
-    openSnackBar: open,
+    open,
     // setOpen,
     message,
     severity
@@ -50,4 +50,16 @@ export default function CustomizedSnackbars(props) {
       <Alert severity="success">This is a success message!</Alert> */}
     </div>
   );
+}
+
+export default function SnackBarsContainer(props) {
+  const { open, message, severity } = useSelector(state => state.ui.snackBar)
+
+  return (
+    <SnackBar
+      open={open}
+      severity={severity}
+      message={message}
+    />
+  )
 }

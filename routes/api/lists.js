@@ -49,7 +49,24 @@ router.delete("/:id(\\d+)", async (req, res, _next) => {
     }
   })
 
-  res.json(deletedList)
+  const lists = await prisma.list.findMany({
+    select: {
+      id: true,
+      title: true,
+      tasks: {
+        select: {
+          id: true,
+          title: true,
+          status: true
+        }
+      }
+    },
+    orderBy: {
+      id: "desc"
+    }
+  })
+
+  res.json(lists)
 })
 
 router.put("/:id(\\d+)", async (req, res, _next) => {

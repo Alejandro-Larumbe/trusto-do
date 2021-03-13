@@ -1,4 +1,5 @@
 import { LOAD_TASK } from './reducer';
+import { getLists } from '../lists/actions';
 
 export const getTask = (id) => async(dispatch) => {
   const data = await fetch(`/tasks/${id}`)
@@ -72,7 +73,7 @@ export const deleteTask = (id) => async(dispatch) => {
   if (data.ok) {
     const task = await data.json();
     // console.log(task)
-    // await dispatch(getLists())
+    await dispatch(getLists())
     return task
   }
 }
