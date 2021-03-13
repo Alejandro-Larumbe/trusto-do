@@ -71,7 +71,7 @@ function AddNewListCard(props) {
         </CardContent>
         <CardActions>
           <>
-            <Button color='primary' fullWidth onClick={onAddList} variant="contained">Save List</Button>
+            <Button color='secondary' fullWidth onClick={onAddList} variant="contained">Save List</Button>
           </>
         </CardActions>
 

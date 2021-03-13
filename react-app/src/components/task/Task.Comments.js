@@ -61,10 +61,8 @@ export default function TaskComment(props) {
             onKeyPress={(e) => { e.key === 'Enter' && e.preventDefault(); }}
             onClick={() => dispatch(editTaskUI('', null))}
             onChange={handleChange(setNewComment)}
-            // onFocus={() => setShowSaveComment(true)}
-            // onBlur={() => setShowSaveComment(false)}
           />
-          <Button variant="contained" color='primary' onClick={onAddComment}>
+          <Button variant="contained" color='secondary' onClick={onAddComment}>
             Add Comment
           </Button>
         </form>

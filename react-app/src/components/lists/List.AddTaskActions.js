@@ -13,13 +13,14 @@ export default function ListAddTaskActions(props) {
       {
         (type === 'addTask' && currentId === list.id) ?
         <>
-            <Button onClick={onAddTask} color='primary' variant="contained">Save Task</Button>
-            <Button onClick={() => dispatch(editListUI('', null))} >Cancel</Button>
+            <Button fullWidth onClick={onAddTask} color='secondary' variant="contained">Save Task</Button>
+            <Button fullWidth onClick={() => dispatch(editListUI('', null))} >Cancel</Button>
           </>
           :
           <Button
             variant='contained'
-            color='primary'
+            color='secondary'
+            fullWidth
             onClick={() => dispatch(editListUI('addTask', list.id))}
             size="small"
             startIcon={<AddIcon />}

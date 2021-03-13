@@ -113,7 +113,7 @@ function Comment(props) {
                 </form>
               </Paper>
               <span>
-                <Button variant='contained' color="primary" onClick={onEditComment}>
+                <Button variant='contained' color="secondary" onClick={onEditComment}>
                   Update
                 </Button >
                 <Button onClick={() => dispatch(editTaskUI('', null))}>
@@ -125,8 +125,9 @@ function Comment(props) {
             <>
               <Grid item xs={12}  >
                 <Card
-                  style={{ backgroundColor: '#FAA569', color: 'white', height:'30px' }}
-                  elevation={2}
+                  style={{ height:'30px', marginBottom:'5px' }}
+                  elevation={4}
+
                 >
                     <Typography align='right' style={{ wordWrap: 'break-word', margin:'8px' }} variant="p" component="p">
                       {comment.comment}
@@ -177,7 +178,6 @@ export default function CommentContainer(props) {
       {...props}
       edit={edit}
       currentId={currentId}
-
     />
   )
 }

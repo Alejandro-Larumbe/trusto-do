@@ -6,7 +6,6 @@ export const getTask = (id) => async(dispatch) => {
   if(data.ok) {
     const task = await data.json();
 
-    // console.log('---------', task)
     dispatch({
       type: LOAD_TASK,
       task

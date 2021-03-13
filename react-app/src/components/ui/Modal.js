@@ -12,13 +12,11 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    // border: 'none'
   },
 }));
 
 export default function MyModal(props) {
   const {
-    setOpen,
     open
   } = props
   const classes = useStyles();

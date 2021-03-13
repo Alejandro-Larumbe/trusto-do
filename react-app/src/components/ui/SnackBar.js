@@ -22,7 +22,6 @@ const useStyles = makeStyles((theme) => ({
 function SnackBar(props) {
   const {
     open,
-    // setOpen,
     message,
     severity
   } = props
@@ -45,9 +44,6 @@ function SnackBar(props) {
           {message}
         </Alert>
       </Snackbar>
-      {/* <Alert severity="error">This is an error message!</Alert>
-      <Alert severity="warning">This is a warning message!</Alert>
-      <Alert severity="success">This is a success message!</Alert> */}
     </div>
   );
 }

@@ -12,11 +12,11 @@ async function main() {
         create: [
           {
             title: 'Come up with an schema',
-            description: 'yeah, gotta to to that fancy diagramdb and come up with a fly schema',
+            description: 'yeah, gotta do that fancy dbdiagram thingie and come up with a choice schema',
             comments: {
               create: [
                 {
-                  comment: "Good think those trustero folks gave me such detailed instructions!",
+                  comment: "Good thing those trustero folks gave me such detailed instructions!",
                 },
                 {
                   comment: "Make sure you know how to use all these data types in prisma",
@@ -30,10 +30,10 @@ async function main() {
             comments: {
               create: [
                 {
-                  comment: 'Gotta look up all that prisma stuff that you just learned',
+                  comment: 'Gotta look up all that SQL looking prisma stuff',
                 },
                 {
-                  comment: "Don't for get to add all the routes",
+                  comment: "Don't forget to add all the routes",
                 },
                 {
                   comment: "make sure you look carefully at your schema",
@@ -53,7 +53,7 @@ async function main() {
                   comment: "Is't react awesome?!",
                 },
                 {
-                  comment: "Oi, don't forget to pass on those props",
+                  comment: "Oi, where are those props coming from???",
                 },
                 {
                   comment: "yeah, it's beginning to look like something",
@@ -75,12 +75,12 @@ async function main() {
       tasks: {
         create: [
           {
-            title: 'Chose what?!',
+            title: 'Chose what to eat?!',
             description: 'yo, the missus is hangry, so I think I better make some tacos!',
             comments: {
               create: [
                 {
-                  comment: "I think she will like it, and me too",
+                  comment: "I think she will be happy about it, my tummy will be too",
                 },
               ]
             }
@@ -101,7 +101,7 @@ async function main() {
           },
           {
             title: 'make tortillas',
-            description: "Because making great tacos comes with great resposibility, gotta make them myself",
+            description: "Because making great tacos comes with great resposibility, gotta make them tortillas myself",
             comments: {
               create: [
                 {
@@ -136,7 +136,7 @@ async function main() {
             comments: {
               create: [
                 {
-                  comment: "Don't for get to play some salsa music to go with the salsa",
+                  comment: "Play some salsa to go with that salsa",
                 },
               ]
             }

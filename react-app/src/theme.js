@@ -1,7 +1,4 @@
-import { createMuiTheme } from '@material-ui/core/styles';
-import { useSelector } from 'react-redux';
-// import green from '@material-ui/core/colors/green';
-import React, { useState } from "react";
+import { useState } from "react";
 
 
 export const themeObject ={
@@ -11,7 +8,7 @@ export const themeObject ={
       main: '#188C97'
     },
     secondary: {
-      main: '#ED751C'
+      main: '#7819b6'
     },
 
     background: {

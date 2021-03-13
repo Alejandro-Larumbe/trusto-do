@@ -4,7 +4,6 @@ import {
   EDIT_LIST,
   EDIT_TASK,
   OPEN_TASK,
-  DARK
 } from './reducer';
 
 export const editingTaskComment = (commentId, boolean) => async dispatch => {

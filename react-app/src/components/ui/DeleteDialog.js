@@ -64,7 +64,7 @@ function DeleteDialog(props) {
           </DialogContentText>
         </DialogContent>
         <DialogActions>
-          <Button fullWidth variant='contained' onClick={callBack} color="primary" autoFocus>
+          <Button fullWidth variant='contained' onClick={callBack} color="secondary" autoFocus>
             Delete
           </Button>
         </DialogActions>

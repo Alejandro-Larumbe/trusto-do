@@ -61,7 +61,7 @@ export function TaskDescription(props) {
                 onChange={(e) => setNewDescription(e.target.value)}
               />
               <span >
-                <Button variant="contained" color='primary' onClick={onDescriptionUpdate}>
+                <Button variant="contained" color='secondary' onClick={onDescriptionUpdate}>
                   Save
               </Button >
                 {
