@@ -64,7 +64,7 @@ export default function TaskComment(props) {
             onClick={() => dispatch(editTaskUI('', null))}
             onChange={handleChange(setNewComment)}
           />
-          <Button variant="contained" color='secondary' onClick={onAddComment}>
+          <Button fullWidth variant="contained" color='secondary' onClick={onAddComment}>
             Add Comment
           </Button>
         </form>

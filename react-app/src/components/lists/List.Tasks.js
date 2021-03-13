@@ -14,7 +14,7 @@ export default function ListTasks({ tasks }) {
   if(!tasks) return null
   return (
 
-    <List component="div" disablePadding>
+    <List component="div" >
       {
         tasks.map(task => {
           return (

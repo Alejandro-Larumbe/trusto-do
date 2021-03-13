@@ -22,7 +22,7 @@ export default function ListAddTaskActions(props) {
             color='secondary'
             fullWidth
             onClick={() => dispatch(editListUI('addTask', list.id))}
-            size="small"
+            // size="small"
             startIcon={<AddIcon />}
           >
             Add Task

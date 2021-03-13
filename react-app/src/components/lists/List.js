@@ -65,14 +65,12 @@ function List(props) {
             // onAddTask={onAddTask}
             {...props}
             />
-        </CardContent>
-        <CardActions >
           <ListAddTaskActions
             list={list}
             onAddTask={onAddTask}
             {...props}
           />
-        </CardActions>
+        </CardContent>
       </Card>
     </>
   );
