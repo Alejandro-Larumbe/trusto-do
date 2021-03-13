@@ -54,7 +54,7 @@ Dark theme! Press icon in top right corner.<div align="center">
    ```bash
    npm start
    ```
-6. To run the React App in development, cd into react-app. install dependencies, and start app
+6. To run the React App in development, cd into react-app. Install dependencies, and start app
 
 ```bash
 cd react-app
