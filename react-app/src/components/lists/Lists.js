@@ -47,8 +47,6 @@ function Lists(props) {
           })
 
         }
-
-        {/* <SnackBar {...props} /> */}
       </Container>
     </>
   )

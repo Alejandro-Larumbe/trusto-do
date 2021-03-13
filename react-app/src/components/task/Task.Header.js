@@ -113,9 +113,12 @@ function TaskHeader(props) {
               edge='end'
               size='small'
               onClick={() => {
-                dispatch(statusToggle(task.status ? false : true, task.id))
-                dispatch(openSnackBar(true, task.status ? 'Wait, you did not complete the task!' : 'Task Completed, Yay!', task.status ? 'warning' : 'success'))
-                dispatch(getLists())
+                (async () => {
+                  await dispatch(statusToggle(task.status ? false : true, task.id))
+                  await dispatch(openSnackBar(true, task.status ? 'Wait, you did not complete the task!' : 'Task Completed, Yay!', task.status ? 'warning' : 'success'))
+                  await dispatch(getLists())
+                }
+                )()
               }}
             >
               {

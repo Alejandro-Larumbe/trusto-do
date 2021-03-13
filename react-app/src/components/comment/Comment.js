@@ -125,7 +125,7 @@ function Comment(props) {
             <>
               <Grid item xs={12}  >
                 <Card
-                  style={{ backgroundColor: '#EAEFF0', height:'30px' }}
+                  style={{ backgroundColor: '#FAA569', color: 'white', height:'30px' }}
                   elevation={2}
                 >
                     <Typography align='right' style={{ wordWrap: 'break-word', margin:'8px' }} variant="p" component="p">

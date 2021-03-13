@@ -23,9 +23,14 @@ router.get("/:id(\\d+)", async (req, res, _next) => {
           createdAt: true,
           comment: true
         },
-        orderBy:{
+        orderBy:[
+          {
           createdAt: 'desc'
+        },
+        {
+          id: 'desc'
         }
+      ]
       },
       list: {
         select: {

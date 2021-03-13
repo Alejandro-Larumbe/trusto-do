@@ -17,11 +17,9 @@ let store = configureStore(initialStore);
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <ThemeProvider theme={theme}>
-        <CssBaseline>
+
         <App />
-        </CssBaseline>
-      </ThemeProvider>
+
     </Provider>
   </React.StrictMode>,
   document.getElementById('root')

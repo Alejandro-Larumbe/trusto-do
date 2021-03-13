@@ -1,23 +1,12 @@
 import { createMuiTheme } from '@material-ui/core/styles';
 import { useSelector } from 'react-redux';
 // import green from '@material-ui/core/colors/green';
+import React, { useState } from "react";
 
-let dark = true
-let darkMode = localStorage.getItem("dark")
 
-console.log(darkMode)
-
-window.addEventListener('storage', function(event) {
-  // if (event.key === 'user-value') {
-  //   output.textContent = event.newValue;
-  // }
-  console.log(event)
-  console.log(event.key)
-});
-
-export const theme = createMuiTheme({
+export const themeObject ={
   palette: {
-    type: dark ? "dark" : 'light',
+    type: 'light',
     primary: {
       main: '#188C97'
     },
@@ -26,8 +15,31 @@ export const theme = createMuiTheme({
     },
 
     background: {
-      default: dark ? '#303030' : '#D7FAFB',
+      default: '#D7FAFB',
     }
 
   },
-});
+};
+
+
+export const useDarkMode = () => {
+  const [theme, setTheme] = useState(themeObject);
+
+  const {
+    palette: { type }
+  } = theme;
+  const toggleDarkMode = () => {
+    const updatedTheme = {
+      ...theme,
+      palette: {
+        ...theme.palette,
+        type: type === "light" ? "dark" : "light",
+        background: {
+          default: type === "light" ? '#303030' : '#D7FAFB' ,
+        }
+      }
+    };
+    setTheme(updatedTheme);
+  };
+  return [theme, toggleDarkMode];
+};

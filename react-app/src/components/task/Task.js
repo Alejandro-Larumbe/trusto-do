@@ -17,10 +17,12 @@ const useStyles = makeStyles((theme) => ({
     maxWidth: 800,
     minWidth: 300,
     outline: 'none',
-    maxHeight: '40%',
-    position: "absolute",
-    top: "50%",
-    transform: "translateY(-50%)"
+    overflow: 'scroll',
+
+    maxHeight: "80%",
+    // position: "absolute",
+    // top: "50%",
+    // transform: "translateY(-50%)"
 
     // display: "block",
     // justifyContent: "center"
@@ -46,15 +48,14 @@ function Task(props) {
     <Modal
       {...props}
     >
-      <Box
+      <Container
         className={classes.root}
         display="flex"
         flexDirection="column"
         justifyContent="center"
       >
-      <Container
+      {/* <Container */}
 
-      >
           <Card>
             <Grid
               container
@@ -66,7 +67,7 @@ function Task(props) {
             </Grid>
           </Card>
       </Container>
-        </Box>
+        {/* </Box> */}
     </Modal>
   );
 }

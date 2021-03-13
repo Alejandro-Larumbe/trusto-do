@@ -26,8 +26,3 @@ export const editListUI = (componentType, id) => async dispatch => {
 export const editTaskUI = (componentType, id) => async dispatch => {
   dispatch({type: EDIT_TASK, componentType, id})
 }
-
-export const darkToggle = (boolean) => async dispatch => {
-  dispatch({type: DARK, boolean})
-
-}

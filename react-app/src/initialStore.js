@@ -7,8 +7,7 @@ const initialStore = {
     }
   },
   ui: {
-    dark: false,
-    task: {
+      task: {
       currentId: null,
       type: ''
     },

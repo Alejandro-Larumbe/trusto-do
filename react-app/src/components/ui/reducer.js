@@ -3,7 +3,6 @@ export const OPEN_SNACK_BAR = 'OPEN_SNACK_BAR';
 export const OPEN_TASK = 'OPEN_TASK';
 export const EDIT_LIST =  "EDIT_LIST";
 export const EDIT_TASK =  "EDIT_TASK";
-export const DARK =  "DARK";
 
 export default function reducer(state = {}, action) {
   Object.freeze(state)
@@ -49,11 +48,6 @@ export default function reducer(state = {}, action) {
           open: action.open,
           taskId: action.id
         }
-      }
-    case DARK:
-      return {
-        ...state,
-        dark: action.boolean
       }
     default: return state
   }

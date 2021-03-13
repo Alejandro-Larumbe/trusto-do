@@ -16,6 +16,9 @@ router.get("/", async (_req, res, _next) => {
           id: true,
           title: true,
           status: true
+        },
+        orderBy: {
+          id: "asc"
         }
       }
     },
@@ -58,6 +61,9 @@ router.delete("/:id(\\d+)", async (req, res, _next) => {
           id: true,
           title: true,
           status: true
+        },
+        orderBy: {
+          id: "asc"
         }
       }
     },
