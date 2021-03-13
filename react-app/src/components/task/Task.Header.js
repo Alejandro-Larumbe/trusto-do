@@ -68,6 +68,7 @@ function TaskHeader(props) {
       <Box
         height={80}
         className={classes.item}
+        maxWidth={'100%'}
       >
         <Grid
           container

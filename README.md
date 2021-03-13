@@ -87,7 +87,7 @@ npm start
 ### Alejandro Larumbe
 
 *(Full-stack software developer, open to work)*
-[![Alejandro's em](https://img.shields.io/badge/larumbemar@gmail.com-f4b400?style=flat-square&logo=gmail&logoColor=black&link=mailto:larumbemar@gmail.com)](mailto:larumbemar@gmail.com)
+[![Alicia's email](https://img.shields.io/badge/larumbemar@gmail.com-f4b400?style=flat-square&logo=gmail&logoColor=black&link=mailto:larumbemar@gmail.com)](mailto:alicia.mira.kim@gmail.com)
 [![Linkedin](https://img.shields.io/badge/-LinkedIn-0077b5?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/alejandro-larumbe/)](https://www.linkedin.com/in/alejandro-larumbe/1)
 [![AngelList](https://img.shields.io/badge/-AngelList-black?style=flat-square&logo=AngelList&logoColor=white&link=https://angel.co/u/alejandro-larumbe)](https://angel.co/u/alejandro-larumbe)
 [![GitHub alimirakim](https://img.shields.io/github/followers/alimirakim?label=follow&style=social)](https://github.com/alejandro-larumbe)

@@ -9,7 +9,7 @@ import DeleteIcon from '@material-ui/icons/Delete';
 import { makeStyles } from '@material-ui/core/styles';
 import { useDispatch } from 'react-redux';
 import { updateTitle, deleteList } from './actions';
-import { editListUI, openSnackBar  } from '../ui/actions';
+import { editListUI, openSnackBar } from '../ui/actions';
 import DeleteDialog from '../ui/DeleteDialog';
 
 
@@ -67,7 +67,7 @@ function ListTitle(props) {
         justify="space-between"
         alignItems="center"
       >
-        <Grid xs={10} item>
+        <Grid item xs={10}>
           {
             (type === 'title' && currentId === list.id) ?
               <form onSubmit={onEditTitle} >
@@ -115,7 +115,7 @@ function ListTitle(props) {
 
 
 export default function ListTitleContainer(props) {
-  const editListUi = useSelector(state => state.ui.list )
+  const editListUi = useSelector(state => state.ui.list)
   return (
     <ListTitle {...props} editListUi={editListUi} />
   )

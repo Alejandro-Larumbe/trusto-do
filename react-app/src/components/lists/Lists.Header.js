@@ -18,15 +18,15 @@ export default function ListsTitle() {
         alignItems="flex-end"
       >
 
-        <Typography variant={'h4'} >
-          Lists
-    </Typography>
-        <Button
+      <Typography variant={'h4'} >
+        Lists
+      </Typography>
+      <Button
           onClick={() => dispatch(editListUI('newList', null))}
           startIcon={<AddIcon />}
-        >
-          Add List
-    </Button>
+      >
+        Add List
+      </Button>
       </Grid>
     </div>
   )
